@@ -1,10 +1,12 @@
 {
   "eleitores": {
     "000000000": {"nome": "nome", "votou": false},
-    "000000001": {"nome1": "nome", "votou": false},
-    "000000002": {"nome2": "nome", "votou": false}
+    "000000001": {"nome": "nome1", "votou": false},
+    "000000002": {"nome": "nome2", "votou": false}
   },
   "candidatos": {
-    "00": {"votos": 0, "candidato": "000000000", "vice": "000000001", "partido": "partido", "numero": "00"}
-  },
+    "00": {"votos": 0, "candidato": "000000000", "vice": "000000001", "partido": "partido", "numero": "00"},
+    "BRANCO": {"votos": 0},
+    "NULO": {"votos": 0}
+  }
 }
