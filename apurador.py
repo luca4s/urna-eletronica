@@ -10,11 +10,11 @@ def calc(n, d):
 data = json.loads(f)
 candidatos = data['candidatos']
 estudantes = data['estudantes']
-html = "<!DOCTYPE html> <html> <head> <style> body { font-family: arial, sans-serif; text-align: center; } table { margin-left: auto; margin-right: auto; border-collapse: collapse; width: 75%; } td, th { border: 1px solid #dddddd; text-align: left; padding: 8px; } </style> <title>Resultados - Eleição 8°B</title> </head> <body> <h2>Resultados</h2> <table> <tr> <th>Nome</th> <th>Votou?</th> </tr>"
+html = "<!DOCTYPE html> <html> <head> <style> body { font-family: arial, sans-serif; text-align: center; } table { margin-left: auto; margin-right: auto; border-collapse: collapse; width: 75%; } td, th { border: 1px solid #dddddd; text-align: left; padding: 8px; } </style> <title>Resultados</title> </head> <body> <h2>Resultados</h2> <table> <tr> <th>Nome</th> <th>Votou?</th> </tr>"
 votos = 0
 ausente = 0
 ausentes = []
-votosvalidos = (candidatos["10"]["votos"] + candidatos["23"]["votos"] + candidatos["77"]["votos"])
+votosvalidos = 0
 votosbrancos = candidatos["BRANCO"]["votos"]
 votosnulos = candidatos["NULO"]["votos"]
 candidatomaisvotado = ""
@@ -29,6 +29,7 @@ html += f" </table> <br> <table> <tr> <th>Votos</th> <th>Votos Válidos</th> <th
 print("Apurando votos...")
 for candidato in candidatos:
     if candidato != "BRANCO" and candidato != "NULO":
+        votosvalidos += candidatos[candidato]["votos"]
         if candidatomaisvotado == "":
             candidatomaisvotado = candidatos[candidato]["numero"]
         elif candidatos[candidato]["votos"] > candidatos[candidatomaisvotado]["votos"]:
