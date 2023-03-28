@@ -111,7 +111,7 @@ while running:
         screen.blit(infotext, infotext.get_rect(center=(683, 384+100)))
     elif SEC == 2:
         seuvotopara = smallfont.render("SEU VOTO PARA", True, (128, 128, 128))
-        candidato = font.render("Candidato", True, (0, 0, 0))
+        candidatotext = font.render("Candidato", True, (0, 0, 0))
         numero = mediumfont.render("Número: ", True, (0, 0, 0))
         xs = [200, 255]
         for x in xs:
@@ -149,7 +149,7 @@ while running:
                 screen.blit(partido, (25, 361))
                 screen.blit(vicecandidato, (25, 411))
         screen.blit(seuvotopara, (25, 10))
-        screen.blit(candidato, candidato.get_rect(center=(643, 150)))
+        screen.blit(candidatotext, candidatotext.get_rect(center=(643, 150)))
         screen.blit(numero, (25, 241))
     elif SEC == 3:
         text = bigfont.render("FIM", True, (0, 0, 0))
