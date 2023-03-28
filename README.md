@@ -1,5 +1,5 @@
 # Urna Eletrônica (recriado por luca4s)
-Uma simulação de urna eletrônica que pode ser ultilizada para fazer eleições.
+Um simulador de urna eletrônica que pode ser ultilizada para fazer eleições e/ou votações.
 # Requisitos:
 - Python3 (com pip)
 - Experiência com Python (caso queira fazer modificações)
