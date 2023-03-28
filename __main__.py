@@ -1,3 +1,4 @@
+# https://github.com/luca4s/urna-eletronica
 import pygame, sys, json
 with open('data.json', encoding="utf8") as data:
     f = data.read()
