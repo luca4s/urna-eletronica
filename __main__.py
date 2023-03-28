@@ -34,7 +34,7 @@ while running:
                     SEC = 2
                     confirma.play()
                 elif SEC == 2:
-                    data["estudantes"][RA]["votou"] = True
+                    data["eleitores"][RA]["votou"] = True
                     data["candidatos"][V]["votos"] += 1
                     info = ""
                     RA = ""
@@ -65,9 +65,9 @@ while running:
                         info = ""
                         RA += event.unicode
                     if len(RA) == 9:
-                        if data["estudantes"].get(RA) is not None:
-                            if not data["estudantes"][RA]["votou"]:
-                                info = data["estudantes"][RA]["nome"]
+                        if data["eleitores"].get(RA) is not None:
+                            if not data["eleitores"][RA]["votou"]:
+                                info = data["eleitores"][RA]["nome"]
                                 CC = True
                             else:
                                 info = "JÁ VOTOU"
@@ -110,7 +110,7 @@ while running:
         screen.blit(infotext, infotext.get_rect(center=(683, 384+100)))
     elif SEC == 2:
         seuvotopara = smallfont.render("SEU VOTO PARA", True, (128, 128, 128))
-        representantedeturma = font.render("Representante de Turma", True, (0, 0, 0))
+        candidato = font.render("Candidato", True, (0, 0, 0))
         numero = mediumfont.render("Número: ", True, (0, 0, 0))
         xs = [200, 255]
         for x in xs:
@@ -130,25 +130,25 @@ while running:
                 votobranco = bigfont.render(info, True, (0, 0, 0))
                 screen.blit(votobranco, votobranco.get_rect(center=(683, 504)))
             else:
-                estudantev = data["candidatos"][V]["estudante"]
+                candidato = data["candidatos"][V]["candidato"]
                 vice = data["candidatos"][V]["vice"]
                 partido = data["candidatos"][V]["partido"]
-                fotoestudante = pygame.image.load(f"fotos/{estudantev}.png")
+                fotocandidato = pygame.image.load(f"fotos/{candidato}.png")
                 fotovice = pygame.image.load(f"fotos/{vice}.png")
-                rectestudante = pygame.Rect(1041, 25, 300, 400)
+                rectcandidato = pygame.Rect(1041, 25, 300, 400)
                 rectvice = pygame.Rect(1191, 450, 150, 200)
-                pygame.draw.rect(screen, (0, 0, 0), rectestudante, 0)
+                pygame.draw.rect(screen, (0, 0, 0), rectcandidato, 0)
                 pygame.draw.rect(screen, (0, 0, 0), rectvice, 0)
-                nome = mediumfont.render(f'Nome: {data["estudantes"][estudantev]["nome"]}', True, (0, 0, 0))
+                nome = mediumfont.render(f'Nome: {data["eleitores"][candidato]["nome"]}', True, (0, 0, 0))
                 partido = mediumfont.render(f'Partido: {partido}', True, (0, 0, 0))
-                vicerepresentante = mediumfont.render(f'Vice-Representante: {data["estudantes"][vice]["nome"]}', True, (0, 0, 0))
-                screen.blit(fotoestudante, rectestudante)
+                vicecandidato = mediumfont.render(f'Vice-Candidato: {data["eleitores"][vice]["nome"]}', True, (0, 0, 0))
+                screen.blit(fotocandidato, rectcandidato)
                 screen.blit(fotovice, rectvice)
                 screen.blit(nome, (25, 311))
                 screen.blit(partido, (25, 361))
-                screen.blit(vicerepresentante, (25, 411))
+                screen.blit(vicecandidato, (25, 411))
         screen.blit(seuvotopara, (25, 10))
-        screen.blit(representantedeturma, representantedeturma.get_rect(center=(643, 150)))
+        screen.blit(candidato, candidato.get_rect(center=(643, 150)))
         screen.blit(numero, (25, 241))
     elif SEC == 3:
         text = bigfont.render("FIM", True, (0, 0, 0))
